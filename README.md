@@ -1,2 +1,2 @@
-# character-controller-2d
+# 2D-character-controller
 A unity 2D Character Controller Prototype
