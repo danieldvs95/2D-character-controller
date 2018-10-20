@@ -3,12 +3,16 @@
 public class PlayerMovement : MonoBehaviour
 {
 
+    // Checks if player is aiming horizontally
     bool isAiming;
 
+    // Checks if player is aiming up
     bool isAimingUp;
 
+    // Checks if player is jumping
     bool isJumping;
 
+    // Direction if the player horizontal input
     float horizontalInput = 0f;
 
     Animator animator;
@@ -71,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAnimations ()
     {
-        // Update animation based on player's input
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
 
         if ((isAimingUp || isAiming) && !isJumping)

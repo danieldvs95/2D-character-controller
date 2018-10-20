@@ -6,6 +6,7 @@ public class CharacterController2D : MonoBehaviour
     // The top speed on wich the player is going to move
     public float topSpeed = 9f;
 
+    // The force applied when player jump
     public float jumpForce = 500f;
 
     // For determining which way the player is currently facing.
@@ -33,7 +34,6 @@ public class CharacterController2D : MonoBehaviour
 
     public void Move(float input)
     {
-        // Add velocity to the rigidbody so the character moves according to (inputDirection * topSpeed)
         if ((player.IsAimingUp() || player.IsAiming()) && !player.IsJumping())
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
@@ -43,7 +43,6 @@ public class CharacterController2D : MonoBehaviour
             rb2d.velocity = new Vector2(input * topSpeed, rb2d.velocity.y);
         }
 
-        // Check if the character change direction of movement
         if ((input > 0 && !orientation) || (input < 0 && orientation))
         {
             Flip();
@@ -52,10 +51,8 @@ public class CharacterController2D : MonoBehaviour
 
     void Flip()
     {
-        // Switch the way the player is labelled as facing.
         orientation = !orientation;
 
-        // Set 180 y-axis in the rotation of the player.
         transform.Rotate(0f, 180f, 0f);
     }
 
